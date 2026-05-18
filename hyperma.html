@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+  <div class="card">
+    <h2>Mission 3 – Client Mystère</h2>
+
+    <p>
+      Un client agressif dit :
+      <br><br>
+      “Votre magasin est toujours en désordre !”
+    </p>
+
+    <p><b>Votre réaction ?</b></p>
+
+    <button onclick="goodAnswer(15, 'mission3')">Rester calme, écouter et proposer une solution</button>
+    <button onclick="badAnswer('mission3')">Répondre sèchement au client</button>
+
+    <p id="mission3"></p>
+  </div>
+
+  <div class="card">
+    <h2>Mission 4 – Drive Infernal</h2>
+
+    <p>
+      Une commande drive contient :
+      <br>• Produits surgelés
+      <br>• Produits ménagers
+      <br>• Bouteilles en verre
+    </p>
+
+    <p><b>Question :</b> Que devez-vous faire ?</p>
+
+    <button onclick="goodAnswer(15, 'mission4')">Séparer les produits et respecter la chaîne du froid</button>
+    <button onclick="badAnswer('mission4')">Tout mettre ensemble pour aller plus vite</button>
+
+    <p id="mission4"></p>
+  </div>
+
+  <div class="card">
+    <h2>Mission 5 – La Caisse en Folie</h2>
+
+    <p>
+      Une cliente conteste un prix affiché.
+      La file d’attente devient très longue.
+    </p>
+
+    <p><b>Que faites-vous ?</b></p>
+
+    <button onclick="goodAnswer(20, 'mission5')">Vérifier calmement le prix et gérer le flux client</button>
+    <button onclick="badAnswer('mission5')">Ignorer la cliente pour aller plus vite</button>
+
+    <p id="mission5"></p>
+  </div>
+
+  <div class="card">
+    <h2>Code Final</h2>
+
+    <p>
+      Vous avez terminé toutes les missions.
+      Entrez le code final pour ouvrir le magasin.
+    </p>
+
+    <input type="text" id="finalCode" placeholder="Entrez le code">
+    <br>
+    <button onclick="checkCode()">Valider</button>
+
+    <p id="finalResult"></p>
+  </div>
+
+</div>
+
+<script>
+  let score = 0;
+
+  function updateScore(points) {
+    score += points;
+    document.getElementById('score').innerText = score;
+  }
+
+  function goodAnswer(points, id) {
+    updateScore(points);
+    document.getElementById(id).innerHTML = '<span class="success">Bonne décision !</span>';
+  }
+
+  function badAnswer(id) {
+    document.getElementById(id).innerHTML = '<span class="error">Mauvaise décision ! Attention aux procédures.</span>';
+  }
+
+  function checkCode() {
+    const code = document.getElementById('finalCode').value;
+
+    if(code === '2471') {
+      document.getElementById('finalResult').innerHTML = '<span class="success">Bravo ! Le magasin peut ouvrir.</span>';
+    } else {
+      document.getElementById('finalResult').innerHTML = '<span class="error">Mauvais code. Recherchez les indices.</span>';
+    }
+  }
+</script>
+
+</body>
+</html>
